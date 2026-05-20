@@ -1,11 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrea Battistini - Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    
+
+
+  <nav id="navbar">
+    <a href="/index.html" class="nav-logo">AB</a>
+
+    <button id="menu-toggle" aria-label="Apri menu">&#9776;</button>
+
+    <ul id="nav-links">
+
+      <li><a href="/index.html">About</a></li>
+
+      <li class="dropdown">
+        <a href="#">Materie &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/materie/informatica.html">Informatica</a></li>
+          <li><a href="pages/materie/sistemi-e-reti.html">Sistemi e Reti</a></li>
+          <li><a href="pages/materie/tpsit.html">TPSIT</a></li>
+          <li><a href="pages/materie/matematica.html">Matematica</a></li>
+          <li><a href="pages/materie/gpoi.html">GPOI</a></li>
+          <li><a href="pages/materie/intelligenza-artificiale.html">Intelligenza Artificiale</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a href="pages/materie/storia.html">Storia</a></li>
+          <li><a href="pages/materie/italiano.html">Italiano</a></li>
+          <li><a href="pages/materie/inglese.html">Inglese</a></li>
+          <li><a href="pages/materie/religione.html">Religione</a></li>
+          <li><a href="pages/materie/educazione-fisica.html">Educazione Fisica</a></li>
+        </ul>
+      </li>
+
+      <li><a href="pages/pcto.html">PCTO</a></li>
+      <li><a href="pages/educazione-civica.html">Ed. Civica</a></li>
+
+      <li class="dropdown">
+        <a href="#">Progetti &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="pages/progetti-scolastici.html">Progetti Scolastici</a></li>
+          <li><a href="pages/progetti-personali.html">Progetti Personali</a></li>
+        </ul>
+      </li>
+
+      <li><a href="pages/abilita.html">Abilità</a></li>
+      <li><a href="pages/contatti.html">Contatti</a></li>
+
+    </ul>
+  </nav>
+  <section id="hero">
+    <img src="img/foto.jpg" alt="Foto di Andrea Battistini" class="avatar" />
+    <h1>Andrea Battistini</h1>
+    <p class="ruolo">Student Developer &nbsp;|&nbsp; ITI 5DM &nbsp;|&nbsp; Networking &amp; Security</p>
+    <div class="btn-row">
+      <a href="cv.pdf" download class="btn">Scarica CV</a>
+      <a href="https://github.com/AndreaBatt2006" target="_blank" class="btn">GitHub</a>
+      <a href="pages/contatti.html" class="btn">Contatti</a>
+    </div>
+  </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Mi chiamo Andrea Battistini e frequento la classe 5DM presso l'ITI.
+      Sono appassionato di reti, cybersecurity e sviluppo software, con una forte curiosità
+      per tutto ciò che riguarda i sistemi e le infrastrutture informatiche.
+    </p>
+    <p>
+      Nel corso degli anni ho sviluppato competenze in diversi linguaggi di programmazione
+      tra cui C#, Java, JavaScript, PHP e Python, e ho avuto modo di mettere in pratica
+      le mie conoscenze sia in ambito scolastico che in progetti personali.
+    </p>
+    <p>
+      Al di fuori della scuola mi dedico al tennis, alla palestra e al gaming.
+      Gestisco da oltre un anno il team di staff di Shard, una community multi-gaming
+      basata su Minecraft.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Andrea Battistini</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
