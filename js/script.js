@@ -8,33 +8,31 @@ if (menuToggle) {
   });
 }
 
-
 var dropdowns = document.querySelectorAll('.dropdown');
 
 dropdowns.forEach(function (dropdown) {
-  var trigger = dropdown.querySelector('a');
+  var trigger = dropdown.querySelector(':scope > a');
 
-  trigger.addEventListener('click', function (e) {
-   
-    if (window.innerWidth <= 640) {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
-    }
-  });
+  if (trigger) {
+    trigger.addEventListener('click', function (e) {
+      if (window.innerWidth <= 640) {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      }
+    });
+  }
 });
-
 
 
 var allLinks = document.querySelectorAll('#nav-links a');
 
 allLinks.forEach(function (link) {
   link.addEventListener('click', function () {
-   
     var parentDropdown = link.closest('.dropdown');
     var isDropdownTrigger = parentDropdown && link === parentDropdown.querySelector(':scope > a');
 
     if (!isDropdownTrigger) {
-      navLinks.classList.remove('open');
+      if (navLinks) navLinks.classList.remove('open');
       dropdowns.forEach(function (d) { d.classList.remove('open'); });
     }
   });
