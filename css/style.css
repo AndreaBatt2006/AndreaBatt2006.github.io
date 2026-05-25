@@ -231,7 +231,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 160px;
+  width: 500px;
   border: 1px solid #ddd;
   border-radius: 6px;
   overflow: hidden;
@@ -247,7 +247,7 @@ p {
 
 .materia-tile img {
   width: 100%;
-  height: 150px;
+  height: 280px;
   object-fit: cover;
   border-radius: 0;
 }
@@ -385,6 +385,6 @@ footer {
   }
 
   .materia-tile {
-    width: 220px;
+    width: 350px;
   }
 }
