@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPSIT - Concorrenza</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../js/script.js"></script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="../../index.html" class="nav-logo">AB</a>
+    <button id="menu-toggle" aria-label="Apri menu">&#9776;</button>
+    <ul id="nav-links">
+
+      <li><a href="../../index.html">About</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="active">Materie &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../materieUmanistiche/materieUmanistiche.html">Materie Umanistiche</a></li>
+          <li><a href="materieScientifiche.html" class="active">Materie Scientifiche</a></li>
+        </ul>
+      </li>
+
+      <li><a href="../FSL.html">FSL</a></li>
+      <li><a href="../educazioneCivica.html">Ed. Civica</a></li>
+
+      <li class="dropdown">
+        <a href="#">Progetti &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../progettiScolastici.html">Progetti Scolastici</a></li>
+          <li><a href="../progettiPersonali.html">Progetti Personali</a></li>
+        </ul>
+      </li>
+      <li><a href="pagine/curriculum.html">Curriculum</a></li>
+      <li><a href="../contatti.html">Contatti</a></li>
+
+    </ul>
+  </nav>
+
+
+  <section id="hero-sub">
+    <h1>TPSIT</h1>
+    <p>Argomento: Problemi classici nella concorrenza</p>
+  </section>
+
+
+  <section>
+    <h2>La programmazione concorrente</h2>
+    <p>
+      Nella programmazione concorrente più thread o processi lavorano contemporaneamente
+      condividendo risorse.<br> Coordinare questo accesso senza errori è uno dei problemi fondamentali
+      dell'informatica.<br> I quattro scenari classici che seguono rappresentano pattern ricorrenti
+      che ogni sviluppatore deve conoscere.
+    </p>
+    <p>
+      I problemi principali da evitare sono la <strong>race condition</strong> (accesso non
+      controllato a una risorsa condivisa), il <strong>deadlock</strong> (blocco reciproco tra
+      thread), la <strong>starvation</strong> (un thread non ottiene mai accesso) e il
+      <strong>livelock</strong> (i thread continuano a reagire l'uno all'altro senza progredire).
+    </p>
+  </section>
+
+  <section>
+    <h2>1. Produttore e Consumatore</h2>
+    <img src="../../img/materie/tpsit/produttoreconsumatore.png" alt="Produttore Consumatore" />
+    <p>
+      Uno o più produttori generano elementi e li inseriscono in un buffer di dimensione finita,
+      mentre uno o più consumatori prelevano quegli elementi per elaborarli.
+    </p>
+    <p>
+      Il problema è coordinare l'accesso al buffer evitando tre situazioni critiche:
+    </p>
+    <ul>
+      <li><strong>Race condition:</strong> due thread modificano il buffer contemporaneamente</li>
+      <li><strong>Overflow:</strong> il produttore inserisce un elemento in un buffer già pieno</li>
+      <li><strong>Underflow:</strong> il consumatore tenta di prelevare da un buffer vuoto</li>
+    </ul>
+    <p>
+      La soluzione tipica usa semafori per tenere il conto dei posti liberi e degli elementi
+      presenti, più un mutex per proteggere la sezione critica di accesso al buffer.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Lettori e Scrittori</h2>
+    <img src="../../img/materie/tpsit/lettoriscrittori.png" alt="Lettori e Scrittori" />
+    <p>
+      Più lettori possono accedere contemporaneamente a una risorsa condivisa, come un database,
+      ma uno scrittore deve avere accesso esclusivo.<br> Le regole fondamentali sono:
+    </p>
+    <ul>
+      <li>Nessuna scrittura mentre qualcuno sta leggendo</li>
+      <li>Nessuna lettura mentre qualcuno sta scrivendo</li>
+      <li>Gestione dell'equità per evitare starvation di lettori o scrittori</li>
+    </ul>
+    <p>
+      Esistono diverse varianti: con preferenza ai lettori, con preferenza agli scrittori,
+      o soluzioni eque con code FIFO. La scelta dipende dal contesto applicativo.
+    </p>
+  </section>
+
+  <!-- FILOSOFI A CENA -->
+  <section>
+    <h2>3. Filosofi a cena</h2>
+    <img src="../../img/materie/tpsit/filosofi.png" alt="Filosofi a cena" />
+    <p>
+      N filosofi siedono attorno a un tavolo rotondo.<br>Tra ogni coppia di filosofi adiacenti
+      c'è una sola forchetta.<br> Per mangiare un filosofo deve prendere entrambe le forchette
+      ai suoi lati; quando non mangia, pensa.
+    </p>
+    <p>
+      Il rischio principale è il <strong>deadlock</strong>: se tutti i filosofi prendono
+      contemporaneamente la forchetta alla loro sinistra, nessuno riuscirà mai a prendere
+      quella di destra e il sistema si blocca indefinitamente.
+    </p>
+    <p>
+      Una soluzione semplice ed efficace è limitare a N-1 il numero di filosofi che possono
+      tentare di prendere le forchette contemporaneamente, garantendo che almeno uno riesca
+      sempre a completare il pasto.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>4. Barbiere sonnolento</h2>
+    <img src="../../img/materie/tpsit/barbiere.png" alt="Barbiere sonnolento" />
+    <p>
+      Un barbiere dorme finché non arriva un cliente.<br> Se arriva un cliente e il barbiere è
+      occupato, il cliente aspetta in una sala con M sedie disponibili.<br> Se tutte le sedie
+      sono occupate, il cliente se ne va senza aspettare.
+    </p>
+    <p>
+      Il problema richiede di sincronizzare correttamente gli arrivi dei clienti, il risveglio
+      del barbiere e l'accesso alla sedia da taglio, evitando race condition sul conteggio
+      dei clienti in attesa.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>Perché ho scelto questo argomento</h2>
+    <p>
+      Ho scelto i problemi classici della concorrenza perché rappresentano uno degli argomenti
+      più concreti e applicabili dell'intero programma di TPSIT.<br> Non si tratta di teoria astratta:
+      questi stessi schemi si ritrovano in qualsiasi sistema reale che gestisce più operazioni
+      in parallelo, dai database ai server web.
+    </p>
+    <p>
+      Studiare come Java risolve questi problemi tramite semafori, lock e condition mi ha dato
+      una visione molto più solida di come funziona la programmazione multi-thread, che è una
+      competenza fondamentale per chi vuole lavorare nello sviluppo software.
+    </p>
+  </section>
+
+  <footer>
+    <p>2026 Andrea Battistini</p>
+  </footer>
+
+
+</body>
+</html>
