@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistemi e Reti - Certificati Digitali</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="../../js/script.js" defer></script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="../../index.html" class="nav-logo">AB</a>
+    <button id="menu-toggle" aria-label="Apri menu">&#9776;</button>
+    <ul id="nav-links">
+
+      <li><a href="../../index.html">About</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="active">Materie &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../materieUmanistiche/materieUmanistiche.html">Materie Umanistiche</a></li>
+          <li><a href="materieScientifiche.html" class="active">Materie Scientifiche</a></li>
+        </ul>
+      </li>
+
+      <li><a href="../FSL.html">FSL</a></li>
+      <li><a href="../educazioneCivica.html">Ed. Civica</a></li>
+
+      <li class="dropdown">
+        <a href="#">Progetti &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../progettiScolastici.html">Progetti Scolastici</a></li>
+          <li><a href="../progettiPersonali.html">Progetti Personali</a></li>
+        </ul>
+      </li>
+      <li><a href="../curriculum.html">Curriculum</a></li>
+      <li><a href="../contatti.html">Contatti</a></li>
+
+    </ul>
+  </nav>
+
+  <section id="hero-sub">
+    <h1>Sistemi e Reti</h1>
+    <p>Argomento: Certificati Digitali</p>
+  </section>
+
+
+  <section>
+    <h2>Cos'è un certificato digitale</h2>
+    <img src="../../img/materie/sistemi/certificato.png" alt="Certificato Digitale" /><br>
+    <p>
+      Nel mondo digitale, quando ricevi un messaggio firmato da qualcuno, hai bisogno della sua
+      chiave pubblica per verificare la firma.<br> Il problema è: come fai a essere sicuro che quella
+      chiave appartenga davvero a chi dice di essere e non a un impostore?
+    </p>
+    <p>
+      I certificati digitali nascono esattamente per risolvere questo problema.
+      La chiave pubblica non viaggia da sola, ma è racchiusa in un "contenitore" firmato da un
+      ente terzo di fiducia che ne garantisce l'autenticità.
+    </p>
+    <p>
+      In sostanza, il certificato digitale è l'equivalente digitale di un documento d'identità:
+      lega in modo verificabile una chiave pubblica all'identità del suo proprietario.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>Cosa contiene un certificato</h2>
+    <img src="../../img/materie/sistemi/contenutocertificato.png" alt="Contenuto certificato" /><br>
+    <p>Un certificato digitale contiene tre categorie di informazioni:</p>
+    <ul>
+      <li><strong>Dati del proprietario:</strong> nome, cognome, data di nascita e chiave pubblica del titolare.</li>
+      <li><strong>Dati del certificato:</strong> numero di serie univoco e data di scadenza. Una coppia di chiavi a 1024 bit ha validità massima di 2 anni.</li>
+      <li><strong>Dati della CA:</strong> ragione sociale dell'ente certificatore e la firma digitale della CA che garantisce l'autenticità del documento.</li>
+    </ul>
+
+    <h3>La Smartcard</h3>
+    <p>
+      Il certificato digitale è fisicamente contenuto in una smartcard, una tessera con microchip
+      integrato che conserva in modo protetto la chiave privata del titolare.<br>
+      La chiave privata non lascia mai il dispositivo e per utilizzarla è necessario inserire un PIN personale.
+    </p>
+
+    <h3>Formati: X.509 vs PGP/GPG</h3>
+    <p>
+      <strong>X.509</strong> è lo standard ufficiale: per ottenerlo è obbligatorio rivolgersi a un ente
+      certificatore accreditato ed è quello richiesto dalla Pubblica Amministrazione.
+    </p>
+    <p>
+      <strong>PGP/GPG</strong> è un formato alternativo che può essere creato autonomamente senza passare
+      da alcun ente, ma offre un livello di fiducia inferiore perché non c'è un ente terzo che ne
+      garantisce l'autenticità.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>CA e RA</h2>
+    <img src="../../img/materie/sistemi/ca-ra.jpg" alt="CA e RA" /><br>
+
+    <h3>Registration Authority (RA)</h3>
+    <p>
+      La RA è l'ente che si occupa dell'identificazione del richiedente prima dell'emissione del
+      certificato. Raccoglie i dati, verifica i documenti e accerta l'identità del soggetto.<br>
+      In poche parole: la RA verifica chi sei prima che il certificato venga creato.
+    </p>
+
+    <h3>Certification Authority (CA)</h3>
+    <p>
+      La CA gestisce il ciclo di vita del certificato: una volta che la RA ha verificato l'identità,
+      la CA genera il certificato, lo firma digitalmente con la propria chiave privata e lo pubblica online.<br>
+      Si occupa anche della manutenzione e dell'eventuale revoca.
+    </p>
+    <p>
+      La firma della CA rende praticamente impossibile la manomissione: un malintenzionato dovrebbe
+      violare la cifratura della CA, sostituire le chiavi e ricodificare il tutto con la chiave privata
+      della CA, un'operazione computazionalmente impossibile.
+    </p>
+
+  </section>
+
+
+  <section>
+    <h2>PKI e Revoca</h2>
+    <img src="../../img/materie/sistemi/pki.png" alt="PKI" /><br>
+
+    <h3>Public Key Infrastructure (PKI)</h3>
+    <p>
+      La PKI è l'insieme di tutto ciò che ruota attorno ai certificati digitali: gli enti CA e RA,
+      le tecnologie che utilizzano e le politiche di gestione che applicano.<br>
+      È l'infrastruttura tecnica e organizzativa preposta alla creazione, distribuzione e revoca
+      dei certificati di chiave pubblica.
+    </p>
+    <p>
+      La PKI è organizzata come una struttura ad albero: al vertice si trova la CA root, con il
+      massimo livello di fiducia.<br> La CA root può firmare i certificati di CA intermedie, che a loro
+      volta certificano utenti finali, creando una catena di fiducia verificabile dal basso verso l'alto.
+    </p>
+
+    <h3>Scadenza e Revoca: la CRL</h3>
+    <p>
+      I certificati hanno una scadenza e vanno periodicamente rinnovati.<br> Esistono però casi in cui
+      un certificato deve essere invalidato prima della scadenza:
+    </p>
+    <ul>
+      <li>La chiave privata viene compromessa o persa</li>
+      <li>Il titolare non è più autorizzato (licenziamento, trasferimento)</li>
+    </ul>
+    <p>
+      In questi casi la CA inserisce il certificato nella <strong>CRL</strong> (Certificate Revocation List),
+      una lista pubblica dei certificati revocati.<br> Prima di considerare valido un certificato è buona norma
+      verificare che il suo numero di serie non compaia nell'ultima versione della CRL.
+    </p>
+  </section>
+
+  
+  <section>
+    <h2>Perché ho scelto questo argomento</h2>
+    <p>
+      I certificati digitali sono stati l'argomento che ho presentato durante l'esposizione in classe
+      tramite PowerPoint, ed è probabilmente quello su cui mi sono preparato meglio durante l'anno.
+    </p>
+    <p>
+      Non è stata una scelta casuale: l'argomento mi ha subito incuriosito perché tocca un problema
+      concreto e quotidiano.<br> Capire come funziona la catena di fiducia della PKI, il ruolo
+      della CA e della RA e come viene gestita la revoca mi ha dato una visione più solida di come
+      funziona la sicurezza nelle comunicazioni digitali reali.
+    </p>
+  </section>
+
+  <footer>
+    <p> 2026 Andrea Battistini</p>
+  </footer>
+
+ 
+</body>
+</html>

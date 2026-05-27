@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligenza Artificiale - Reti Neurali</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script src="../../js/script.js"></script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="../../index.html" class="nav-logo">AB</a>
+    <button id="menu-toggle" aria-label="Apri menu">&#9776;</button>
+    <ul id="nav-links">
+
+      <li><a href="../../index.html">About</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="active">Materie &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../materieUmanistiche/materieUmanistiche.html">Materie Umanistiche</a></li>
+          <li><a href="materieScientifiche.html" class="active">Materie Scientifiche</a></li>
+        </ul>
+      </li>
+
+      <li><a href="../FSL.html">FSL</a></li>
+      <li><a href="../educazioneCivica.html">Ed. Civica</a></li>
+
+      <li class="dropdown">
+        <a href="#">Progetti &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../progettiScolastici.html">Progetti Scolastici</a></li>
+          <li><a href="../progettiPersonali.html">Progetti Personali</a></li>
+        </ul>
+      </li>
+
+      <li><a href="../curriculum.html">Curriculum</a></li>
+      <li><a href="../contatti.html">Contatti</a></li>
+
+    </ul>
+  </nav>
+
+  <section id="hero-sub">
+    <h1>Intelligenza Artificiale</h1>
+    <p>Argomento: Reti Neurali</p>
+  </section>
+
+  <section>
+    <h2>Cenni storici</h2>
+    <img src="../../img/materie/ia/storia.jpg" alt="Storia reti neurali" /><br>
+    <p>
+      La storia delle reti neurali artificiali non è stata lineare: a fasi di entusiasmo sono
+      seguiti periodi di stagnazione detti <strong>AI winters</strong>, in cui calano interesse e finanziamenti.
+    </p>
+    <ul>
+      <li><strong>1943</strong> McCulloch e Pitts propongono il primo modello matematico di neurone artificiale</li>
+      <li><strong>1957</strong> Rosenblatt realizza il Percettrone, ispirato alla corteccia visiva</li>
+      <li><strong>1969</strong> Minsky e Papert dimostrano i limiti del percettrone (problema XOR): primo inverno dell'IA</li>
+      <li><strong>anni '80</strong> Rumelhart, Hinton e Williams rendono praticabile la backpropagation per reti multi-strato</li>
+      <li><strong>1997</strong> Hochreiter e Schmidhuber propongono le LSTM per le sequenze</li>
+      <li><strong>2012</strong> AlexNet vince ImageNet: inizio dell'era del Deep Learning</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Il modello di McCulloch e Pitts</h2>
+    <img src="../../img/materie/ia/neuroneArtificiale.png" alt="Modello neurone artificiale" /><br>
+    <p>
+      Il neurone biologico riceve segnali dai dendriti, li elabora nel corpo cellulare e
+      trasmette il risultato tramite l'assone. McCulloch e Pitts hanno costruito un modello
+      matematico che cattura l'essenziale di questo meccanismo.
+    </p>
+    <p>Il modello si basa su due meccanismi fondamentali:</p>
+    <ul>
+      <li><strong>Accumulazione degli input pesati:</strong> ogni input viene moltiplicato per un peso che ne rappresenta l'importanza</li>
+      <li><strong>Attivazione a soglia:</strong> se la somma pesata supera una soglia, il neurone si "accende"</li>
+    </ul>
+    <p>
+      Il <strong>bias</strong> è un peso collegato a un input fittizio sempre uguale a 1.
+      Cambiare il bias significa rendere il neurone più o meno facile da attivare,
+      senza modificare i pesi degli input reali.
+    </p>
+  </section>
+
+  <section>
+    <h2>Il Percettrone</h2>
+    <img src="../../img/materie/ia/percettrone.jpg" alt="Percettrone" /><br>
+    <p>
+      Frank Rosenblatt costruì il Percettrone nel 1957 come classificatore lineare:
+      decide tra due classi tracciando un iperpiano di separazione nello spazio degli input.
+      L'aspetto rivoluzionario è la capacità di <strong>apprendere</strong>: i pesi vengono
+      corretti iterativamente in base all'errore commesso su ogni esempio di training.
+    </p>
+    <p>
+      Il Percettrone riesce a implementare porte logiche semplici come AND, OR e NOT,
+      perché i dati di queste funzioni sono linearmente separabili.
+    </p>
+  </section>
+
+  <section>
+    <h2>Il problema dello XOR</h2>
+    <img src="../../img/materie/ia/xor.png" alt="Problema XOR" /><br>
+    <p>
+      Il Percettrone fallisce con la porta XOR. La ragione è geometrica:
+      i punti della XOR non sono linearmente separabili, cioè non esiste alcuna retta
+      che separi correttamente i casi in cui l'output è 1 da quelli in cui è 0.
+    </p>
+    <table>
+      <thead>
+        <tr><th>x1</th><th>x2</th><th>XOR</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Per risolvere il problema XOR servono architetture con più strati,
+      capaci di rappresentare trasformazioni non lineari.
+    </p>
+  </section>
+
+  <section>
+    <h2>Multi-Layer Perceptron (MLP)</h2>
+    <img src="../../img/materie/ia/mlp.jpg" alt="Multi-Layer Perceptron" /><br>
+    <p>
+      La risposta ai limiti del percettrone semplice è il <strong>Multi-Layer Perceptron</strong>:
+      una rete neurale con uno strato di input, uno o più strati nascosti e uno strato di output.
+    </p>
+    <p>
+      Gli strati nascosti permettono alla rete di costruire rappresentazioni intermedie:
+      non si limita a tracciare una retta, ma combina trasformazioni che rendono separabili
+      anche classi non linearmente separabili come la XOR.
+    </p>
+    <p>
+      Il <strong>teorema dell'approssimazione universale</strong> afferma che una rete con
+      almeno uno strato nascosto e una funzione di attivazione non lineare può approssimare
+      con precisione arbitraria qualunque funzione continua. Questo però non dice quanti
+      neuroni servono né come trovarli in modo efficiente.
+    </p>
+  </section>
+
+  <section>
+    <h2>Error Backpropagation</h2>
+    <img src="../../img/materie/ia/backpropagation.jpg" alt="Backpropagation" /><br>
+    <p>
+      La backpropagation è l'algoritmo che permette di addestrare reti multi-strato.
+      L'idea è distribuire "la colpa" dell'errore lungo i pesi che hanno contribuito a produrlo,
+      e correggerli con un passo nella direzione giusta.
+    </p>
+    <p>Il processo di addestramento si articola in quattro fasi:</p>
+    <ul>
+      <li><strong>Feed-forward:</strong> l'input percorre la rete strato per strato fino all'output</li>
+      <li><strong>Calcolo dell'errore:</strong> si confronta l'output predetto con quello atteso</li>
+      <li><strong>Backpropagation:</strong> l'errore viene propagato all'indietro, strato per strato</li>
+      <li><strong>Aggiornamento dei pesi:</strong> ogni peso viene corretto proporzionalmente alla sua responsabilità nell'errore</li>
+    </ul>
+    <p>
+      Un problema critico è il <strong>vanishing gradient</strong>: man mano che il gradiente
+      viene propagato verso gli strati iniziali, tende a diventare sempre più piccolo.<br>
+      La soluzione più comune è usare la funzione di attivazione <strong>ReLU</strong>,
+      che non satura per valori positivi.
+    </p>
+  </section>
+
+  <section>
+    <h2>Funzioni di attivazione</h2>
+    <img src="../../img/materie/ia/attivazione.png" alt="Funzioni di attivazione" /><br>
+    <p>
+      La funzione di attivazione determina quando e quanto un neurone si "accende".
+      Le più comuni sono:
+    </p>
+    <ul>
+      <li><strong>Sigmoid:</strong> output tra 0 e 1, usata per classificazione binaria nello strato di output. Soffre di vanishing gradient.</li>
+      <li><strong>Tanh:</strong> output tra -1 e 1, più simmetrica della sigmoid ma soffre ugualmente di vanishing gradient.</li>
+      <li><strong>ReLU:</strong> f(x) = max(0, x). Semplice, veloce, non satura per x &gt; 0. Standard nelle reti moderne.</li>
+      <li><strong>Softmax:</strong> trasforma i punteggi in una distribuzione di probabilità sulle classi. Usata nello strato di output per classificazione multiclasse.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Reti Neurali Ricorrenti (RNN)</h2>
+    <img src="../../img/materie/ia/rnn.jpg" alt="RNN" /><br>
+    <p>
+      Le reti MLP trattano ogni input come indipendente dagli altri. Questo le rende inadatte
+      per dati sequenziali come testo, audio o serie storiche, dove l'ordine nel tempo conta.
+    </p>
+    <p>
+      Le <strong>RNN</strong> introducono collegamenti retroattivi: l'output al tempo t dipende
+      non solo dall'input corrente, ma anche dallo stato nascosto dei passi precedenti.
+      In questo modo la rete mantiene una sorta di memoria interna.
+    </p>
+    <p>
+      Anche le RNN soffrono di vanishing e exploding gradient, questa volta propagato
+      anche attraverso il tempo. La soluzione sono architetture con memoria controllata:
+    </p>
+    <ul>
+      <li><strong>LSTM</strong> (Long Short-Term Memory) usa porte (forget, input, output) per controllare cosa memorizzare e cosa dimenticare</li>
+      <li><strong>GRU</strong> (Gated Recurrent Unit) versione semplificata delle LSTM, meno parametri e prestazioni comparabili</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Feature Engineering vs Feature Learning</h2>
+    <p>
+      Nel Machine Learning tradizionale le features vengono progettate a mano da esperti:
+      si scelgono e trasformano le misure in ingresso sulla base dell'esperienza umana.<br>
+      Il vantaggio è il controllo diretto; lo svantaggio è che dipende dalla bravura dell'esperto.
+    </p>
+    <p>
+      Con il Deep Learning il modello impara automaticamente quali features usare,
+      costruendo rappresentazioni gerarchiche direttamente dai dati.<br>
+      Il vantaggio è la capacità di scoprire pattern complessi; lo svantaggio è la minore
+      spiegabilità, il cosiddetto problema della "black box".
+    </p>
+  </section>
+
+  <section>
+    <h2>Perché ho scelto questo argomento</h2>
+    <p>
+      Ho scelto le reti neurali perché rappresentano il cuore di tutto ciò che oggi viene
+      chiamato intelligenza artificiale.<br> Capire da dove vengono, come funzionano e
+      perché certi problemi storici come lo XOR hanno richiesto decenni per essere risolti
+      mi ha dato una visione molto più solida di questo mondo.
+    </p>
+    <p>
+      È uno degli argomenti in cui la teoria si collega direttamente alla realtà:
+      ogni volta che uso uno strumento basato su AI, so cosa c'è dietro.
+    </p>
+  </section>
+
+  <footer>
+    <p>2026 Andrea Battistini</p>
+  </footer>
+</body>
+</html>
