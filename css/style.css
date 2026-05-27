@@ -648,4 +648,10 @@ footer {
       border: none;
     }
 
-    
+    .project-card-body a {
+  color: #111;
+}
+
+.project-card-body ul li {
+  color: #333;
+}
