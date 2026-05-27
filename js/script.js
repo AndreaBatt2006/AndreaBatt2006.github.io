@@ -37,3 +37,19 @@ allLinks.forEach(function (link) {
     }
   });
 });
+
+
+    function toggleCard(header) {
+      header.classList.toggle('open');
+      var body = header.nextElementSibling;
+      body.classList.toggle('open');
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
